@@ -1,25 +1,22 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import './App.css';
+import Card from './components/Card';
+import gradients from './data/data'
 
 class App extends Component {
+  renderList(){
+    return gradients.map((item) => {
+     return  <Card
+              colorOne = {item[0]}
+              colorTwo = {item[1]}
+              />
+    }) 
+  }
+  
   render() {
     return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
+      <div className="card-outside">
+        {this.renderList()}
       </div>
     );
   }
